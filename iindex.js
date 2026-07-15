@@ -62,23 +62,24 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
+// ... (tout ton code précédent)
+
 // --- AJOUTE CECI POUR LE HEALTH CHECK DE CANNER ---
 const http = require('http');
 const server = http.createServer((req, res) => {
     res.writeHead(200);
     res.end('Le bot est en ligne !');
 });
-server.listen(3000); // Canner utilise souvent ce port
+server.listen(3000);
 // ----------------------------------------------------
-
-client.login(process.env.TOKEN);
 
 // DEBUG : Affiche le début du token pour vérifier s'il est bien lu
 console.log("Token détecté :", process.env.TOKEN ? (process.env.TOKEN.substring(0, 5) + "...") : "AUCUN TOKEN !");
 
 if (!process.env.TOKEN) {
     console.error("ERREUR CRITIQUE : La variable TOKEN est vide ou non définie dans Canner.");
-    process.exit(1); // Arrête le bot pour éviter le crash en boucle
+    process.exit(1);
 }
 
-client.login(process.env.TOKEN.trim()); // .trim() enlève les espaces accidentels au début/fin
+// ON NE GARDE QUE CE LOGIN ICI
+client.login(process.env.TOKEN.trim());
