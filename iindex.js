@@ -64,17 +64,18 @@ client.on('interactionCreate', async interaction => {
 
 // ... (tout ton code précédent)
 
-// --- AJOUTE CECI POUR LE HEALTH CHECK DE CANNER ---
+// Remplace ton bloc serveur actuel par celui-ci
 const http = require('http');
+const PORT = process.env.PORT || 3000; // Utilise le port de Canner s'il en impose un
+
 const server = http.createServer((req, res) => {
     res.writeHead(200);
     res.end('Le bot est en ligne !');
 });
-server.listen(3000);
-// ----------------------------------------------------
 
-// DEBUG : Affiche le début du token pour vérifier s'il est bien lu
-console.log("Token détecté :", process.env.TOKEN ? (process.env.TOKEN.substring(0, 5) + "...") : "AUCUN TOKEN !");
+server.listen(PORT, () => {
+    console.log(`Serveur de health check en écoute sur le port ${PORT}`);
+});
 
 if (!process.env.TOKEN) {
     console.error("ERREUR CRITIQUE : La variable TOKEN est vide ou non définie dans Canner.");
