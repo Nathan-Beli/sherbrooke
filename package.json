@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "iindex.js",
   "scripts": {
-    "build": "npm install",
+    "build": "echo 'Build terminé'",
     "start": "node iindex.js"
   },
   "dependencies": {
