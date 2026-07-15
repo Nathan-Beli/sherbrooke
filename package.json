@@ -1,1 +1,12 @@
-
+{
+  "name": "Sherbrooke RP",
+  "version": "1.0.0",
+  "main": "iindex.js",
+  "scripts": {
+    "start": "node iindex.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.4.5"
+  }
+}
