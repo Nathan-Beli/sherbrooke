@@ -29,7 +29,7 @@ const rolesToDelete = [
     "1479611200596606987", "1479611241881403522", "1472231552145559715"
 ];
 
-const SALON_DEMISSION_ID = "TON_ID_DE_SALON_ICI";
+const SALON_DEMISSION_ID = "1478907385333420228";
 
 client.once('ready', async () => {
     console.log('Bot opérationnel.');
