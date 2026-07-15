@@ -62,6 +62,17 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
+// --- AJOUTE CECI POUR LE HEALTH CHECK DE CANNER ---
+const http = require('http');
+const server = http.createServer((req, res) => {
+    res.writeHead(200);
+    res.end('Le bot est en ligne !');
+});
+server.listen(3000); // Canner utilise souvent ce port
+// ----------------------------------------------------
+
+client.login(process.env.TOKEN);
+
 // DEBUG : Affiche le début du token pour vérifier s'il est bien lu
 console.log("Token détecté :", process.env.TOKEN ? (process.env.TOKEN.substring(0, 5) + "...") : "AUCUN TOKEN !");
 
