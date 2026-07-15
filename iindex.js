@@ -62,4 +62,12 @@ client.on('interactionCreate', async interaction => {
     }
 });
 
-client.login(process.env.TOKEN);
+// DEBUG : Affiche le début du token pour vérifier s'il est bien lu
+console.log("Token détecté :", process.env.TOKEN ? (process.env.TOKEN.substring(0, 5) + "...") : "AUCUN TOKEN !");
+
+if (!process.env.TOKEN) {
+    console.error("ERREUR CRITIQUE : La variable TOKEN est vide ou non définie dans Canner.");
+    process.exit(1); // Arrête le bot pour éviter le crash en boucle
+}
+
+client.login(process.env.TOKEN.trim()); // .trim() enlève les espaces accidentels au début/fin
