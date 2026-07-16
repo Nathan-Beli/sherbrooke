@@ -1,0 +1,15 @@
+# Dépendances (ce que tu ne dois PAS envoyer sur GitHub)
+node_modules/
+
+# Fichiers de log et de build
+npm-debug.log
+*.log
+dist/
+build/
+
+# Ton fichier de configuration local (TRÈS IMPORTANT pour la sécurité)
+.env
+
+# Fichiers système
+.DS_Store
+.vscode/
